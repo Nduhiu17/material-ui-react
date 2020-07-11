@@ -1,4 +1,14 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React material UI
+
+## Live site
+
+ [https://nduhiu17.github.io/material-ui-react/
+](https://nduhiu17.github.io/material-ui-react/)
+
+
+### Technologies
+
+> React, Material UI
 
 ## Available Scripts
 
