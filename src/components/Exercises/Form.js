@@ -7,15 +7,10 @@ import {
     Button,
     MenuItem
 } from '@material-ui/core'
-import { withStyles } from '@material-ui/core/styles';
 
-const styles = theme =>({
-    FormControl: {
-        width:250
-    }
-})
 
-export default withStyles(styles)(class extends Component{
+
+export default class extends Component{
 
     state= this.getInitialState()
 
@@ -29,10 +24,6 @@ export default withStyles(styles)(class extends Component{
         }
     }
 
-    getDeriveStateFromProps({ exercise }){
-        return exercise || null
-    }
-    
     handleChange = name => ({ target:{value}}) => 
         this.setState({
             [name]:value
@@ -45,13 +36,11 @@ export default withStyles(styles)(class extends Component{
             id:this.state.title.toLocaleLowerCase().replace(/ /g,'-'),
             ...this.state            
         })
-
-        this.setState(this.getInitialState())
     }
 
     render(){
         const { title,description,muscles} = this.state,
-              { classes, exercise, muscles: categories} = this.props
+              { exercise, muscles: categories} = this.props
         return(
             <form>
                 <TextField 
@@ -59,10 +48,10 @@ export default withStyles(styles)(class extends Component{
                 value={title}
                 onChange={this.handleChange('title')}
                 margin="normal"
-                className={classes.FormControl}
+                fullWidth
                 />
                 <br/>
-                <FormControl className={classes.FormControl}>
+                <FormControl fullWidth>
                         <InputLabel htmlFor="muscles">Muscles</InputLabel>
                         <Select
                         value={muscles}
@@ -80,7 +69,7 @@ export default withStyles(styles)(class extends Component{
                 value={description}
                 onChange={this.handleChange('description')}
                 margin="normal"
-                className={classes.FormControl}
+                fullWidth
                 multiline
                 rows={4}
                 />
@@ -88,10 +77,11 @@ export default withStyles(styles)(class extends Component{
             <Button 
                 color="primary"
                 onClick={this.handleSubmit}
+                disabled={!title || !description}
                 >
                 { exercise ? "Edit":"Create"}
              </Button>
         </form>
         )
     }
-})
+}
