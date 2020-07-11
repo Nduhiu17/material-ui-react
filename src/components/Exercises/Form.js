@@ -29,10 +29,8 @@ export default withStyles(styles)(class extends Component{
         }
     }
 
-    componentWillReceiveProps({ exercise }){
-        this.setState({
-            ...exercise
-        })
+    getDeriveStateFromProps({ exercise }){
+        return exercise || null
     }
     
     handleChange = name => ({ target:{value}}) => 

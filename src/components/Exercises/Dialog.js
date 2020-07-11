@@ -8,7 +8,6 @@ import {
 } from '@material-ui/core'
 import { Add } from 'material-ui-icons';
 import Form from './Form';
-import { exercises } from '../../store';
 
 
 
