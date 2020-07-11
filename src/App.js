@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import  Header  from './components/layout/Header'
-import { Footer } from './components/layout/Footer'
+import Footer  from './components/layout/Footer'
 import Exercises from './components/Exercises'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import { muscles,exercises } from './store'

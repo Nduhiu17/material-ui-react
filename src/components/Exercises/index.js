@@ -11,13 +11,21 @@ import {
 } from '@material-ui/core'
 import {Delete, Edit} from 'material-ui-icons';
 import Form from './Form'
+import { withStyles } from '@material-ui/core/styles';
 
+const styles = theme => ({
+    Paper: {
+        padding:20,
+        marginTop:5,
+        marginBottom:10,
+        height:500,
+        overflow:'auto'
+    }
+})
 
-const styles = {
-    Paper: {padding:20,marginTop:10,marginBottom:10,height:500,overflow:'auto'}
-}
-
-export default ({ 
+export default withStyles(styles)( 
+ ({ 
+    classes,
     muscles,
     exercises, 
     category, 
@@ -34,8 +42,8 @@ export default ({
     editMode
     }) => 
 <Grid container>
-    <Grid item sm>
-        <Paper style={styles.Paper}>
+    <Grid item xs={12} sm={6}>
+        <Paper className={classes.Paper}>
             {exercises.map(([group,exercises]) =>
             !category || category === group 
             ? <Fragment key={group}>
@@ -76,8 +84,8 @@ export default ({
             )}
         </Paper>
     </Grid>
-    <Grid item sm>
-        <Paper style={styles.Paper}>
+    <Grid item xs={12} sm={6}>
+        <Paper className={classes.Paper}>
         {
             editMode 
             ?
@@ -100,3 +108,4 @@ export default ({
         </Paper>
     </Grid>
 </Grid>
+)
